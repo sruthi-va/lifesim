@@ -1,0 +1,417 @@
+[
+  {
+    "id": "first_steps",
+    "conditions": {
+      "min_age": 1,
+      "max_age": 2
+    },
+    "weight": 5,
+    "once": true,
+    "text": "You are learning to walk. The world is enormous, and the floor is surprisingly interesting.",
+    "choices": [
+      {
+        "label": "Keep practicing",
+        "effects": {
+          "happiness": 5
+        },
+        "result": "You wobble across the room and feel incredibly proud of yourself."
+      },
+      {
+        "label": "Give up and crawl",
+        "effects": {
+          "happiness": -2
+        },
+        "result": "Walking can wait. Crawling is faster anyway."
+      }
+    ]
+  },
+  {
+    "id": "favorite_toy",
+    "conditions": {
+      "min_age": 2,
+      "max_age": 5
+    },
+    "weight": 4,
+    "once": true,
+    "text": "You become attached to a particular toy.",
+    "choices": [
+      {
+        "label": "Take it everywhere",
+        "effects": {
+          "happiness": 5
+        },
+        "set_flags": [
+          "favorite_toy"
+        ],
+        "result": "The toy becomes your constant companion."
+      },
+      {
+        "label": "Leave it at home",
+        "effects": {
+          "smarts": 2
+        },
+        "result": "You learn that you don't need to bring everything with you."
+      }
+    ]
+  },
+  {
+    "id": "playground_friend",
+    "conditions": {
+      "min_age": 4,
+      "max_age": 8
+    },
+    "weight": 5,
+    "once": true,
+    "text": "You meet another kid at the playground.",
+    "choices": [
+      {
+        "label": "Introduce yourself",
+        "effects": {
+          "happiness": 7
+        },
+        "set_flags": [
+          "made_childhood_friend"
+        ],
+        "result": "You make a new friend."
+      },
+      {
+        "label": "Keep playing alone",
+        "effects": {
+          "happiness": -2
+        },
+        "result": "You have a perfectly good time by yourself."
+      }
+    ]
+  },
+  {
+    "id": "school_first_day",
+    "conditions": {
+      "min_age": 5,
+      "max_age": 7
+    },
+    "weight": 6,
+    "once": true,
+    "text": "It's your first day of school.",
+    "choices": [
+      {
+        "label": "Talk to everyone",
+        "effects": {
+          "happiness": 5,
+          "looks": 1
+        },
+        "result": "You quickly meet several classmates."
+      },
+      {
+        "label": "Stay quiet",
+        "effects": {
+          "smarts": 3
+        },
+        "result": "You spend the day observing everything around you."
+      }
+    ]
+  },
+  {
+    "id": "lost_tooth",
+    "conditions": {
+      "min_age": 5,
+      "max_age": 10
+    },
+    "weight": 5,
+    "once": true,
+    "text": "One of your teeth starts wobbling.",
+    "choices": [
+      {
+        "label": "Pull it out",
+        "effects": {
+          "happiness": 4
+        },
+        "result": "You pull it out and immediately start wondering how much money the tooth fairy will bring."
+      },
+      {
+        "label": "Wait",
+        "effects": {
+          "happiness": 1
+        },
+        "result": "Eventually the tooth falls out on its own."
+      }
+    ]
+  },
+  {
+    "id": "school_project",
+    "conditions": {
+      "min_age": 7,
+      "max_age": 12
+    },
+    "weight": 5,
+    "once": true,
+    "text": "Your teacher assigns a difficult school project.",
+    "choices": [
+      {
+        "label": "Work hard",
+        "effects": {
+          "smarts": 5,
+          "happiness": -2
+        },
+        "result": "The project turns out surprisingly well."
+      },
+      {
+        "label": "Do the bare minimum",
+        "effects": {
+          "happiness": 2
+        },
+        "result": "You finish it at the last possible moment."
+      }
+    ]
+  },
+  {
+    "id": "school_bully",
+    "conditions": {
+      "min_age": 7,
+      "max_age": 14
+    },
+    "weight": 3,
+    "once": false,
+    "cooldown": 4,
+    "text": "Someone at school keeps making fun of you.",
+    "choices": [
+      {
+        "label": "Ignore them",
+        "effects": {
+          "happiness": -3,
+          "smarts": 2
+        },
+        "result": "You decide not to give them the reaction they want."
+      },
+      {
+        "label": "Stand up for yourself",
+        "effects": {
+          "happiness": 5
+        },
+        "result": "You tell them to stop. They look surprised that you finally spoke up."
+      }
+    ]
+  },
+  {
+    "id": "summer_vacation",
+    "conditions": {
+      "min_age": 8,
+      "max_age": 17
+    },
+    "weight": 4,
+    "once": false,
+    "cooldown": 5,
+    "text": "Summer vacation begins.",
+    "choices": [
+      {
+        "label": "Spend the summer outside",
+        "effects": {
+          "health": 3,
+          "happiness": 5
+        },
+        "result": "You spend most of the summer outside."
+      },
+      {
+        "label": "Stay inside",
+        "effects": {
+          "happiness": 3,
+          "smarts": 2
+        },
+        "result": "You spend the summer watching movies and learning random things online."
+      }
+    ]
+  },
+  {
+    "id": "first_job",
+    "conditions": {
+      "min_age": 14,
+      "max_age": 17
+    },
+    "weight": 5,
+    "once": true,
+    "text": "You are old enough to get your first part-time job.",
+    "choices": [
+      {
+        "label": "Get a job",
+        "effects": {
+          "money": 500,
+          "happiness": -3,
+          "smarts": 3
+        },
+        "set_flags": [
+          "first_job"
+        ],
+        "result": "You earn your first real paycheck."
+      },
+      {
+        "label": "Focus on school",
+        "effects": {
+          "smarts": 5
+        },
+        "result": "You decide to spend your free time studying instead."
+      }
+    ]
+  },
+  {
+    "id": "driving_test",
+    "conditions": {
+      "min_age": 16,
+      "max_age": 18
+    },
+    "weight": 5,
+    "once": true,
+    "text": "You have the opportunity to take your driving test.",
+    "choices": [
+      {
+        "label": "Take the test",
+        "effects": {
+          "happiness": 5
+        },
+        "set_flags": [
+          "drivers_license"
+        ],
+        "result": "You pass your driving test."
+      },
+      {
+        "label": "Wait another year",
+        "effects": {
+          "smarts": 1
+        },
+        "result": "You decide you're not ready yet."
+      }
+    ]
+  },
+  {
+    "id": "college_decision",
+    "conditions": {
+      "min_age": 17,
+      "max_age": 19
+    },
+    "weight": 5,
+    "once": true,
+    "text": "You need to decide what to do after high school.",
+    "choices": [
+      {
+        "label": "Continue your education",
+        "effects": {
+          "smarts": 6,
+          "money": -1000
+        },
+        "set_flags": [
+          "educated"
+        ],
+        "result": "You decide to continue your education."
+      },
+      {
+        "label": "Start working",
+        "effects": {
+          "money": 1000,
+          "happiness": 2
+        },
+        "set_flags": [
+          "started_working"
+        ],
+        "result": "You decide to enter the workforce."
+      }
+    ]
+  },
+  {
+    "id": "new_hobby",
+    "conditions": {
+      "min_age": 10,
+      "max_age": 40
+    },
+    "weight": 4,
+    "once": true,
+    "text": "You suddenly become interested in a new hobby.",
+    "choices": [
+      {
+        "label": "Take it seriously",
+        "effects": {
+          "happiness": 8,
+          "smarts": 3
+        },
+        "result": "You spend hours learning about your new hobby."
+      },
+      {
+        "label": "Move on",
+        "effects": {
+          "happiness": 1
+        },
+        "result": "The interest fades after a few weeks."
+      }
+    ]
+  },
+  {
+    "id": "unexpected_money",
+    "conditions": {
+      "min_age": 18
+    },
+    "weight": 2,
+    "once": true,
+    "text": "You discover that you are owed a small amount of money from an old account.",
+    "choices": [
+      {
+        "label": "Claim it",
+        "effects": {
+          "money": 750
+        },
+        "result": "The money arrives in your account a few days later."
+      },
+      {
+        "label": "Ignore it",
+        "effects": {
+          "happiness": 1
+        },
+        "result": "You decide it's not worth dealing with."
+      }
+    ]
+  },
+  {
+    "id": "burnout",
+    "conditions": {
+      "min_age": 18,
+      "max_age": 65
+    },
+    "weight": 3,
+    "once": false,
+    "cooldown": 5,
+    "text": "You've been working hard lately and feel completely exhausted.",
+    "choices": [
+      {
+        "label": "Take some time off",
+        "effects": {
+          "happiness": 8,
+          "health": 3
+        },
+        "result": "You slow down and give yourself time to recover."
+      },
+      {
+        "label": "Push through",
+        "effects": {
+          "happiness": -8,
+          "health": -3
+        },
+        "result": "You keep working, but you definitely feel the strain."
+      }
+    ]
+  },
+  {
+    "id": "quiet_year",
+    "conditions": {
+      "min_age": 18
+    },
+    "weight": 1,
+    "once": false,
+    "cooldown": 2,
+    "text": "Nothing particularly dramatic happens this year.",
+    "choices": [
+      {
+        "label": "Continue",
+        "effects": {
+          "happiness": 1
+        },
+        "result": "You enjoy a peaceful year."
+      }
+    ]
+  }
+]

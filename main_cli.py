@@ -1,27 +1,83 @@
 from game.character import Character
-from game.systems.health import yearly_health, check_death
+from game.engine import Engine
+from game.data_loader import load_events
+
+
+def display_event(event):
+    print()
+    print(event["text"])
+    print()
+
+    for index, choice in enumerate(event["choices"], start=1):
+        print(f"{index}. {choice['label']}")
+
+
+def choose_option(event):
+    choices = event["choices"]
+
+    while True:
+        answer = input("\nChoose: ")
+
+        try:
+            choice_number = int(answer)
+        except ValueError:
+            print("Please enter a number.")
+            continue
+
+        if 1 <= choice_number <= len(choices):
+            return choices[choice_number - 1]
+
+        print("Please choose one of the listed options.")
 
 
 name = input("What is your name? ")
 
-c = Character(name)
+character = Character(name)
 
-while c.alive:
-    input(f"[Age {c.age}] Press Enter to age up... ")
+events = load_events()
 
-    c.age += 1
-
-    yearly_health(c)
-    check_death(c)
-
-    print(
-        f"Age {c.age} | "
-        f"HP {c.health} | "
-        f"Happy {c.happiness} | "
-        f"Smarts {c.smarts} | "
-        f"Looks {c.looks} | "
-        f"${c.money}"
-    )
+engine = Engine(character, events)
 
 print()
-print(f"{c.name} died at age {c.age}.")
+print(f"Welcome to your life, {character.name}!")
+
+
+while character.alive:
+    input(
+        f"\n[Age {character.age}] "
+        "Press Enter to age up..."
+    )
+
+    events_this_year = engine.age_up()
+
+    print()
+    print("=" * 60)
+    print(f"AGE {character.age}")
+    print("=" * 60)
+
+    for event in events_this_year:
+        display_event(event)
+
+        choice = choose_option(event)
+
+        result = engine.resolve(event, choice)
+
+        print()
+        print("->", result)
+
+    engine.check_death()
+
+    print()
+    print(
+        f"Health: {character.health} | "
+        f"Happiness: {character.happiness} | "
+        f"Smarts: {character.smarts} | "
+        f"Looks: {character.looks} | "
+        f"Money: ${character.money}"
+    )
+
+
+print()
+print("=" * 60)
+print(f"{character.name} died at age {character.age}.")
+print("=" * 60)
