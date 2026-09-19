@@ -81,6 +81,9 @@ class App:
         self.write("")
         self.write(f"--- Age {self.engine.c.age} ---")
 
+        for message in self.engine.last_year_messages:
+            self.write(message)
+
         self.next_event()
 
     def next_event(self):

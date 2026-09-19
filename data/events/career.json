@@ -1,1 +1,262 @@
-[]
+[
+  {
+    "id": "office_job_offer",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "none"
+    },
+    "weight": 3,
+    "once": true,
+    "text": "You receive an offer for an entry-level office job.",
+    "choices": [
+      {
+        "label": "Accept the job",
+        "set_job": "office",
+        "effects": {
+          "happiness": 3
+        },
+        "result": "You accept the position and start your new career."
+      },
+      {
+        "label": "Turn it down",
+        "effects": {
+          "happiness": -2
+        },
+        "result": "You decide to keep looking for something else."
+      }
+    ]
+  },
+  {
+    "id": "trade_job_offer",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "none"
+    },
+    "weight": 3,
+    "once": true,
+    "text": "A local trade company is hiring apprentices.",
+    "choices": [
+      {
+        "label": "Become an apprentice",
+        "set_job": "trade",
+        "effects": {
+          "happiness": 4
+        },
+        "result": "You begin training as an apprentice."
+      },
+      {
+        "label": "Pass",
+        "result": "You decide that trade work isn't for you."
+      }
+    ]
+  },
+  {
+    "id": "medical_job_offer",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "none"
+    },
+    "weight": 2,
+    "once": true,
+    "text": "A medical facility is hiring assistants.",
+    "choices": [
+      {
+        "label": "Accept the position",
+        "set_job": "medical",
+        "effects": {
+          "happiness": 3,
+          "smarts": 2
+        },
+        "result": "You begin working as a medical assistant."
+      },
+      {
+        "label": "Decline",
+        "result": "You decide to look for a different career."
+      }
+    ]
+  },
+  {
+    "id": "creative_job_offer",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "none"
+    },
+    "weight": 2,
+    "once": true,
+    "text": "A small design studio is looking for a junior designer.",
+    "choices": [
+      {
+        "label": "Take the job",
+        "set_job": "creative",
+        "effects": {
+          "happiness": 8
+        },
+        "result": "You start your career as a junior designer."
+      },
+      {
+        "label": "Decline",
+        "result": "You decide creative work isn't the right fit."
+      }
+    ]
+  },
+  {
+    "id": "bad_boss",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "any"
+    },
+    "weight": 2,
+    "cooldown": 5,
+    "text": "Your boss has started micromanaging everything you do.",
+    "choices": [
+      {
+        "label": "Put up with it",
+        "effects": {
+          "happiness": -8
+        },
+        "result": "You keep your head down and get through the week."
+      },
+      {
+        "label": "Speak up",
+        "effects": {
+          "happiness": 4
+        },
+        "result": "You have an uncomfortable conversation with your boss."
+      }
+    ]
+  },
+  {
+    "id": "workplace_bonus",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "any"
+    },
+    "weight": 1,
+    "cooldown": 6,
+    "text": "Your company gives you an unexpected performance bonus.",
+    "choices": [
+      {
+        "label": "Accept the bonus",
+        "effects": {
+          "money": 2000,
+          "happiness": 5
+        },
+        "result": "You receive a $2,000 bonus."
+      }
+    ]
+  },
+  {
+    "id": "office_layoff",
+    "conditions": {
+      "min_age": 18,
+      "requires_job": "office"
+    },
+    "weight": 1,
+    "cooldown": 10,
+    "text": "Your company announces a round of layoffs.",
+    "choices": [
+      {
+        "label": "Hope for the best",
+        "outcomes": [
+          {
+            "chance": 0.8,
+            "result": "Your position survives the layoffs.",
+            "effects": {
+              "happiness": -3
+            }
+          },
+          {
+            "chance": 0.2,
+            "result": "Unfortunately, you are laid off.",
+            "effects": {
+              "happiness": -15
+            },
+            "clear_job": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "career_burnout",
+    "conditions": {
+      "min_age": 25,
+      "requires_job": "any"
+    },
+    "weight": 1,
+    "cooldown": 8,
+    "text": "You've been working long hours and are starting to feel burned out.",
+    "choices": [
+      {
+        "label": "Keep pushing",
+        "effects": {
+          "happiness": -12,
+          "health": -3
+        },
+        "result": "You keep working, but the exhaustion catches up with you."
+      },
+      {
+        "label": "Take some time off",
+        "effects": {
+          "happiness": 8,
+          "money": -1000
+        },
+        "result": "You take some unpaid time off and recover."
+      }
+    ]
+  },
+  {
+    "id": "career_windfall",
+    "conditions": {
+      "min_age": 25,
+      "requires_job": "any"
+    },
+    "weight": 1,
+    "cooldown": 12,
+    "text": "Your employer gives you a surprisingly generous year-end bonus.",
+    "choices": [
+      {
+        "label": "Take the bonus",
+        "effects": {
+          "money": 5000
+        },
+        "result": "You receive a $5,000 bonus."
+      }
+    ]
+  },
+  {
+    "id": "career_change",
+    "conditions": {
+      "min_age": 25,
+      "requires_job": "any"
+    },
+    "weight": 1,
+    "once": true,
+    "text": "You start wondering whether your current career is really what you want.",
+    "choices": [
+      {
+        "label": "Stay where you are",
+        "effects": {
+          "happiness": 3
+        },
+        "result": "You decide that your current career is good enough for now."
+      },
+      {
+        "label": "Switch to office work",
+        "set_job": "office",
+        "effects": {
+          "happiness": 5
+        },
+        "result": "You make a career change and start over as an office assistant."
+      },
+      {
+        "label": "Switch to creative work",
+        "set_job": "creative",
+        "effects": {
+          "happiness": 8
+        },
+        "result": "You leave your old career behind and enter the creative field."
+      }
+    ]
+  }
+]

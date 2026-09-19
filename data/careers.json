@@ -1,0 +1,70 @@
+{
+  "office": {
+    "min_age": 18,
+    "levels": [
+      {
+        "title": "Office Assistant",
+        "salary": 28000
+      },
+      {
+        "title": "Associate",
+        "salary": 45000
+      },
+      {
+        "title": "Manager",
+        "salary": 70000
+      }
+    ]
+  },
+  "trade": {
+    "min_age": 18,
+    "levels": [
+      {
+        "title": "Apprentice",
+        "salary": 32000
+      },
+      {
+        "title": "Technician",
+        "salary": 50000
+      },
+      {
+        "title": "Senior Technician",
+        "salary": 68000
+      }
+    ]
+  },
+  "medical": {
+    "min_age": 18,
+    "levels": [
+      {
+        "title": "Medical Assistant",
+        "salary": 35000
+      },
+      {
+        "title": "Medical Technician",
+        "salary": 52000
+      },
+      {
+        "title": "Medical Specialist",
+        "salary": 78000
+      }
+    ]
+  },
+  "creative": {
+    "min_age": 18,
+    "levels": [
+      {
+        "title": "Junior Designer",
+        "salary": 30000
+      },
+      {
+        "title": "Designer",
+        "salary": 48000
+      },
+      {
+        "title": "Creative Lead",
+        "salary": 72000
+      }
+    ]
+  }
+}

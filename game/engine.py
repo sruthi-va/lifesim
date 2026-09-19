@@ -1,7 +1,8 @@
 import random
 
+from game import character
 from game.systems.health import yearly_health, check_death
-
+from game.systems.career import yearly_money
 
 STATS = ("health", "happiness", "smarts", "looks")
 
@@ -28,6 +29,21 @@ def eligible(event, character):
     min_money = conditions.get("min_money", -10**9)
 
     if character.money < min_money:
+        return False
+
+    requires_job = conditions.get("requires_job")
+
+    if requires_job == "none" and character.job is not None:
+        return False
+
+    if requires_job == "any" and character.job is None:
+        return False
+
+    if (
+        requires_job
+        and requires_job not in ("any", "none")
+        and character.job != requires_job
+    ):
         return False
 
     last_seen = character.seen.get(event["id"])
@@ -103,6 +119,16 @@ def resolve(character, event, choice):
         chosen_result.get("clear_flags", [])
     )
 
+    if "set_job" in chosen_result:
+        character.job = chosen_result["set_job"]
+        character.job_level = 0
+        character.years_in_job = 0
+
+    if chosen_result.get("clear_job"):
+        character.job = None
+        character.job_level = 0
+        character.years_in_job = 0
+
     character.seen[event["id"]] = character.age
 
     return chosen_result.get("result", "")
@@ -113,11 +139,22 @@ class Engine:
     def __init__(self, character, events):
         self.c = character
         self.events = events
+        self.last_year_messages = []
 
     def age_up(self):
+        self.last_year_messages = []
+
         self.c.age += 1
 
         yearly_health(self.c)
+
+        if check_death(self.c):
+            return []
+
+        promotion_message = yearly_money(self.c)
+
+        if promotion_message:
+            self.last_year_messages.append(promotion_message)
 
         picked_events = []
 
