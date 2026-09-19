@@ -394,24 +394,5 @@
         "result": "You keep working, but you definitely feel the strain."
       }
     ]
-  },
-  {
-    "id": "quiet_year",
-    "conditions": {
-      "min_age": 18
-    },
-    "weight": 1,
-    "once": false,
-    "cooldown": 2,
-    "text": "Nothing particularly dramatic happens this year.",
-    "choices": [
-      {
-        "label": "Continue",
-        "effects": {
-          "happiness": 1
-        },
-        "result": "You enjoy a peaceful year."
-      }
-    ]
   }
 ]

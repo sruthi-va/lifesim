@@ -55,15 +55,13 @@ while character.alive:
     print(f"AGE {character.age}")
     print("=" * 60)
 
-    for event in events_this_year:
-        display_event(event)
-
-        choice = choose_option(event)
-
-        result = engine.resolve(event, choice)
-
-        print()
-        print("->", result)
+    if events_this_year:
+        for event in events_this_year:
+            display_event(event)
+            choice = choose_option(event)
+            result = engine.resolve(event, choice)
+            print()
+            print("->", result)
 
     engine.check_death()
 
